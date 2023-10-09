@@ -6,7 +6,7 @@ g++ *.cpp -o output.exe && ./output.exe
 
 int main()
 {
-	printf("Hello %s", "World!\n");
+	printf("Hello %s\n", "World!");
 
 	return 0;
 }
