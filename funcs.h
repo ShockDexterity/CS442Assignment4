@@ -17,6 +17,7 @@ vector<vector<string>> tokenize(const vector<string>&);
 void parse(const vector<vector<string>>&);
 int findToken(const vector<string>&, const string&);
 void fill(char**, const vector<string>&);
+void executeUserCommand(char** cStringArr);
 
 bool contains(const string&, const string&);
 bool contains(const char*, const char*);

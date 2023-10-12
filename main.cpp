@@ -49,7 +49,7 @@ int main()
 			cout << "Failed to make a child." << '\n';
 			exit(1);
 		}
-		else if (pid == 0)
+		else if (pid == 0) // child
 		{
 			cout << "THIS IS ";
 			print(commandString, size);
@@ -63,6 +63,10 @@ int main()
 					printf("%s\n", path);
 				}
 			}
+
+			executeUserCommand(commandString);
+
+
 
 			exit(0);
 		}

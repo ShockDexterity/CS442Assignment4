@@ -126,6 +126,19 @@ void fill(char** container, const vector<string>& stuff)
     }
 }
 
+void executeUserCommand(char** cStringArr)
+{   
+    //string filePath = "output.txt";
+//     int outFd = open(filePath.c_str(), O_WRONLY | O_CREAT, 0666);
+
+    //Changing the output image to the file
+    // dup2(outFd, 1);
+    if (execvp(cStringArr[0], cStringArr) < 0)
+    {
+        cout << "Couldn't change execution image" << endl;
+    }
+}
+
 bool contains(const string& haystack, const string& needle)
 {
     if (haystack.find(needle) != string::npos)
