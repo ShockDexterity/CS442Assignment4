@@ -1,10 +1,12 @@
 #include "funcs.h"
 
-vector<string> getCommand(int& numTokens)
+vector<string> getCommand(int& numTokens, queue<string>& histQ)
 {
     string input { "" };
     cout << "Enter a command: ";
     getline(cin, input);
+
+    histQ.emplace(input);
 
     stringstream stream { input };
     string token { "" };

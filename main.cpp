@@ -6,16 +6,44 @@ g++ *.cpp -o output.exe && ./output.exe
 
 int main()
 {
+	// at beginning of session, put the data from the file back into the queue
+	int numCommands {0};
+	queue<string> historyQueue;
+	string tempString;
+	fstream histFile("history.txt", ios::in | ios::out | ios::app);
+	// histFile.open("history.txt");
+	if (!histFile)
+	{
+		cout << "Error with file" << endl;
+	}
+
+	while (getline(histFile, tempString))
+	{
+		historyQueue.emplace(tempString);
+		numCommands++;
+	}
+
+	
+
 	while (true)
 	{
 		int numTokens { 0 };
-		vector<string> commandTokens { getCommand(numTokens) };
+		vector<string> commandTokens { getCommand(numTokens, historyQueue) };
 
 		if (lowercase(commandTokens.at(0)) == "exit")
 		{
+			
 			// TODO: print out history to file :)
-
+			histFile.clear();
+			histFile.seekg(0, ios::beg);
+			while(!historyQueue.empty())
+			{
+				histFile << numCommands + 1 << ' ' << historyQueue.front() << endl;
+				historyQueue.pop();
+				numCommands++;
+			}
 			cout << "Exiting shell" << '\n';
+			histFile.close();
 			exit(0);
 		}
 
@@ -54,8 +82,23 @@ int main()
 					printf("%s\n", path);
 				}
 			}
+			else if (contains(commandString[0], "history"))
+			{
+				string copy;
+				for (int i = 0; i < historyQueue.size(); i++)
+				{
+					cout << numCommands + 1 << ' ' << historyQueue.front() << endl;
+					copy = historyQueue.front();
+					historyQueue.pop();
+					historyQueue.emplace(copy);
+					copy = "";
+				}
+			}
+			else
+			{
+				executeUserCommand(commandString);
+			}
 
-			executeUserCommand(commandString);
 
 
 

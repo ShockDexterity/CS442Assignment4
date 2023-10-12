@@ -9,10 +9,11 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <queue>
 
 using namespace std;
 
-vector<string> getCommand(int&);
+vector<string> getCommand(int&, queue<string>&);
 vector<string> getCommandsFromFile(const string&);
 vector<vector<string>> tokenize(const vector<string>&);
 void parse(const vector<vector<string>>&);
