@@ -75,6 +75,8 @@ int main()
 			read(fdParentToChild[0], (char**)commandString, sizeof(commandString));
 			close(fdParentToChild[0]);
 
+			print(commandString, sizeof(commandString));
+
 			if (contains((char*)commandString, (char*)"pwd"))
 			{
 				char path[_PC_PATH_MAX];
