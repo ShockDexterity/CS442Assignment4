@@ -5,11 +5,16 @@ vector<string> getCommand(int& numTokens)
     string input { "" };
     cout << "Enter a command: ";
     getline(cin, input);
+
     stringstream stream { input };
     string token { "" };
     vector<string> tokens {};
     while (getline(stream, token, ' '))
     {
+        if (token == "exit")
+        {
+            exit(0);
+        }
         tokens.emplace_back(token);
         ++numTokens;
     }

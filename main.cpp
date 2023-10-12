@@ -21,6 +21,7 @@ int main()
 
 		int size { 0 };
 		vector<string> commandTokens { getCommand(size) };
+
 		char* commandString[size + 1];
 		//char* commandString[size + 1];
 		commandString[size] = NULL;
