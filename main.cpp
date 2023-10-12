@@ -4,46 +4,27 @@ g++ *.cpp -o output.exe && ./output.exe
 
 #include "funcs.h"
 
-// const string amogus
-// {
-// "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣤⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀\n"
-// "⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀\n"
-// "⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀\n"
-// "⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣄⠀⠀⠀\n"
-// "⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣷⡄⠀\n"
-// "⠀⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀\n"
-// "⠀⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⠀\n"
-// "⠀⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀\n"
-// "⠀⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠉⠻⠿⣿⣿⣿⣿⡿⠿⠿⠛⢻⣿⡇⠀⠀\n"
-// "⠀⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣧⠀⠀\n"
-// "⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀\n"
-// "⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀\n"
-// "⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀\n"
-// "⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀\n"
-// "⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣷⣶⣶⣶⣶⠶⠀⢠⣿⣿⠀⠀⠀\n"
-// "⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡇⠀⠀⠀\n"
-// "⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⠇⠀⠀⠀\n"
-// "⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀\n"
-// "⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ \n"
-// };
-
-
 int main()
 {
-	int size {0};
-	char* commandString[size + 1];
 	while (true)
 	{
-		printf("Hello %s\n", "World!");
-		printf("Amogus\n");
+		// printf("Hello %s\n", "World!");
+		// printf("Amogus\n");
 
-		string command;
-		getline(cin, command);
+		// string command;
+		// getline(cin, command);
 
-		if (command == "exit")
-		{
-			break;
-		}
+		// if (command == "exit")
+		// {
+		// 	break;
+		// }
+
+		int size { 0 };
+		vector<string> commandTokens { getCommand(size) };
+		char* commandString[size + 1];
+		//char* commandString[size + 1];
+		commandString[size] = NULL;
+		fill(commandString, commandTokens);
 
 		int org_STDIN { dup(0) };
 		int org_STDOUT { dup(1) };
@@ -69,20 +50,16 @@ int main()
 		}
 		else if (pid == 0)
 		{
-			// Child process
+			cout << "THIS IS ";
+			print(commandString, size);
 
-			close(fdParentToChild[1]);
-			read(fdParentToChild[0], (char**)commandString, sizeof(commandString));
-			close(fdParentToChild[0]);
-
-			print(commandString, sizeof(commandString));
-
-			if (contains((char*)commandString, (char*)"pwd"))
+			if (contains(commandString[0], "pwd"))
 			{
-				char path[_PC_PATH_MAX];
+				char path[256];
+
 				if (getcwd(path, sizeof(path)) != NULL)
 				{
-					cout << path << endl;
+					printf("%s\n", path);
 				}
 			}
 
@@ -90,26 +67,9 @@ int main()
 		}
 		else
 		{
-			// Parent process
-			// cout << amogus;
-			//int size {0};
-			vector<string> commandTokens {getCommand(size)};
-			//char* commandString[size + 1];
-			commandString[size] = NULL;
-
-			//Filling the c_string array for execvp use
-			fill(commandString, commandTokens);
-
-			close(fdParentToChild[0]);
-			write(fdParentToChild[1], (char**)commandString, sizeof(commandString));
-			close(fdParentToChild[1]);
-
-
+			wait(0);
 		}
 	}
 
 	return 0;
 }
-
-
-
