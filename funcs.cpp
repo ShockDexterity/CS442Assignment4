@@ -11,10 +11,6 @@ vector<string> getCommand(int& numTokens)
     vector<string> tokens {};
     while (getline(stream, token, ' '))
     {
-        if (token == "exit")
-        {
-            exit(0);
-        }
         tokens.emplace_back(token);
         ++numTokens;
     }
@@ -127,7 +123,7 @@ void fill(char** container, const vector<string>& stuff)
 }
 
 void executeUserCommand(char** cStringArr)
-{   
+{
     //string filePath = "output.txt";
 //     int outFd = open(filePath.c_str(), O_WRONLY | O_CREAT, 0666);
 
@@ -155,6 +151,16 @@ bool contains(const char* haystack, const char* needle)
         return true;
     }
     return false;
+}
+
+string lowercase(const string& ref)
+{
+    string res { "" };
+    for (const char& c : ref)
+    {
+        res += static_cast<char>(tolower(c));
+    }
+    return res;
 }
 
 void print(const vector<vector<string>>& vec)

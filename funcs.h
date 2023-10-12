@@ -8,6 +8,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -21,6 +22,8 @@ void executeUserCommand(char** cStringArr);
 
 bool contains(const string&, const string&);
 bool contains(const char*, const char*);
+
+string lowercase(const string&);
 
 void print(const vector<vector<string>>&);
 void print(const vector<string>&);

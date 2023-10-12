@@ -8,38 +8,29 @@ int main()
 {
 	while (true)
 	{
-		// printf("Hello %s\n", "World!");
-		// printf("Amogus\n");
+		int numTokens { 0 };
+		vector<string> commandTokens { getCommand(numTokens) };
 
-		// string command;
-		// getline(cin, command);
+		if (lowercase(commandTokens.at(0)) == "exit")
+		{
+			// TODO: print out history to file :)
 
-		// if (command == "exit")
-		// {
-		// 	break;
-		// }
+			cout << "Exiting shell" << '\n';
+			exit(0);
+		}
 
-		int size { 0 };
-		vector<string> commandTokens { getCommand(size) };
-
-		char* commandString[size + 1];
-		//char* commandString[size + 1];
-		commandString[size] = NULL;
+		char* commandString[numTokens + 1];
+		commandString[numTokens] = NULL;
 		fill(commandString, commandTokens);
 
 		int org_STDIN { dup(0) };
 		int org_STDOUT { dup(1) };
 
-		int fdChildToParent[2] {}; // [0] is reading
-		int fdParentToChild[2] {}; // [1] is writing
-
-		if (pipe(fdChildToParent) < 0)
+		int fd[2] {}; // [0] for reading, [1] for writing
+		if (pipe(fd) == -1)
 		{
-			cout << "Failed to make fdChildToParent into a pipe" << '\n';
-		}
-		if (pipe(fdParentToChild) < 0)
-		{
-			cout << "Failed to make fdParentToChild into a pipe" << '\n';
+			cout << "Failed to make a pipe :(" << '\n';
+			exit(1);
 		}
 
 		pid_t pid { fork() };
@@ -49,10 +40,10 @@ int main()
 			cout << "Failed to make a child." << '\n';
 			exit(1);
 		}
-		else if (pid == 0) // child
+		else if (pid == 0) // must be in child process
 		{
 			cout << "THIS IS ";
-			print(commandString, size);
+			print(commandString, numTokens);
 
 			if (contains(commandString[0], "pwd"))
 			{
@@ -70,9 +61,10 @@ int main()
 
 			exit(0);
 		}
-		else
+		else // must be in parent process
 		{
 			wait(0);
+			// delete[] commandString; // free the memory (it got mad at me)
 		}
 	}
 
