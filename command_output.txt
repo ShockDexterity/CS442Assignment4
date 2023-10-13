@@ -1,118 +1,120 @@
-118 1 pwd
-118 2 ls
-118 3 exit
-118 4 pwd
-118 5 ls
-118 6 ls -l
-118 7 exit
-118 8 history
-118 9 exit
-118 10 ls -l
-118 11 clear
-118 12 exit
-118 13 history
-118 14 amogus
-118 15 clear
-118 16 ls -l
-118 17 pwd
-118 18 exit
-118 19 ls -l
-118 20 ls -l | wc
-118 21 ls -l | wc > output.txt
-118 22 exit
-118 23 histoty
-118 24 history
-118 25 pwd
-118 26 man fork
-118 27 amogus
-118 28 clear
-118 29 exit
-118 30 wc history.txt
-118 31 ls -l
-118 32 exit
-118 33 ls
-118 34 ls -l
-118 35 ls -l | pwd
-118 36 cat command_output.txt
-118 37 exit
-118 38 ls -l | pwd
-118 39 pwd
-118 40 cat command_output.txt
-118 41 clear
-118 42 exit
-118 43 ls -l | pwd
-118 44 cat command_output.txt
-118 45 clear
-118 46 exit
-118 47 ls -l | pwd
-118 48 exit
-118 49 ls -l | pwd
-118 50 exit
-118 51 ls -l | pwd
-118 52 clear
-118 53 exit
-118 54 ls -l | pwd
-118 55 exit
-118 56 ls -l
-118 57 ls -l | pwd
-118 58 pwd
-118 59 clear
-118 60 exit
-118 61 ls -l | pwd
-118 62 exit
-118 63 ls -l | pwd
-118 64 exit
-118 65 ls -l | pwd
-118 66 wc history.txt
-118 67 exit
-118 68 ls -l | wc
-118 69 exit
-118 70 ls -l | wc
-118 71 exit
-118 72 man fork | wc
-118 73 exit
-118 74 wc < cmmand_input.txt
-118 75 exit
-118 76 wc < comand_input.txt
-118 77 exit
-118 78 wc < /home/willc/Desktop/operatingSystems/CS442Assignment4/command_output.txt
-118 79 exit
-118 80 wc < command_output.txt
-118 81 exit
-118 82 wc < command_output.txt
-118 83 exit
-118 84 wc < history.txt
-118 85 exit
-118 86 ls -l | wc
-118 87 exit
-118 88 pwd
-118 89 ls -l > test.txt
-118 90 exit
-118 91 ls -l > test.txt
-118 92 ls -l > test.txt
-118 93 pwd
-118 94 ls -l > test.txt
-118 95 exit
-118 96 ls -l > test.txt
-118 97 cat test.txt
-118 98 exit'
-118 99 exit
-118 100 exit
-118 101 ls -l
-118 102 ls -l | wc
-118 103 wc test.txt
-118 104 wc < test.txt
-118 105 history | wc
-118 106 clear
-118 107 exit
-118 108 history | wc
-118 109 exit
-118 110 history | wc
-118 111 exit
-118 112 history | wc
-118 113 exit
-118 114 history | wc
-118 115 exit
-118 116 history | wc
-118 117 exit
-118 history | wc
+120 1 pwd
+120 2 ls
+120 3 exit
+120 4 pwd
+120 5 ls
+120 6 ls -l
+120 7 exit
+120 8 history
+120 9 exit
+120 10 ls -l
+120 11 clear
+120 12 exit
+120 13 history
+120 14 amogus
+120 15 clear
+120 16 ls -l
+120 17 pwd
+120 18 exit
+120 19 ls -l
+120 20 ls -l | wc
+120 21 ls -l | wc > output.txt
+120 22 exit
+120 23 histoty
+120 24 history
+120 25 pwd
+120 26 man fork
+120 27 amogus
+120 28 clear
+120 29 exit
+120 30 wc history.txt
+120 31 ls -l
+120 32 exit
+120 33 ls
+120 34 ls -l
+120 35 ls -l | pwd
+120 36 cat command_output.txt
+120 37 exit
+120 38 ls -l | pwd
+120 39 pwd
+120 40 cat command_output.txt
+120 41 clear
+120 42 exit
+120 43 ls -l | pwd
+120 44 cat command_output.txt
+120 45 clear
+120 46 exit
+120 47 ls -l | pwd
+120 48 exit
+120 49 ls -l | pwd
+120 50 exit
+120 51 ls -l | pwd
+120 52 clear
+120 53 exit
+120 54 ls -l | pwd
+120 55 exit
+120 56 ls -l
+120 57 ls -l | pwd
+120 58 pwd
+120 59 clear
+120 60 exit
+120 61 ls -l | pwd
+120 62 exit
+120 63 ls -l | pwd
+120 64 exit
+120 65 ls -l | pwd
+120 66 wc history.txt
+120 67 exit
+120 68 ls -l | wc
+120 69 exit
+120 70 ls -l | wc
+120 71 exit
+120 72 man fork | wc
+120 73 exit
+120 74 wc < cmmand_input.txt
+120 75 exit
+120 76 wc < comand_input.txt
+120 77 exit
+120 78 wc < /home/willc/Desktop/operatingSystems/CS442Assignment4/command_output.txt
+120 79 exit
+120 80 wc < command_output.txt
+120 81 exit
+120 82 wc < command_output.txt
+120 83 exit
+120 84 wc < history.txt
+120 85 exit
+120 86 ls -l | wc
+120 87 exit
+120 88 pwd
+120 89 ls -l > test.txt
+120 90 exit
+120 91 ls -l > test.txt
+120 92 ls -l > test.txt
+120 93 pwd
+120 94 ls -l > test.txt
+120 95 exit
+120 96 ls -l > test.txt
+120 97 cat test.txt
+120 98 exit'
+120 99 exit
+120 100 exit
+120 101 ls -l
+120 102 ls -l | wc
+120 103 wc test.txt
+120 104 wc < test.txt
+120 105 history | wc
+120 106 clear
+120 107 exit
+120 108 history | wc
+120 109 exit
+120 110 history | wc
+120 111 exit
+120 112 history | wc
+120 113 exit
+120 114 history | wc
+120 115 exit
+120 116 history | wc
+120 117 exit
+120 118 history | wc
+120 119 exit
+120 history | wc

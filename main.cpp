@@ -137,7 +137,7 @@ int main()
 					fflush(stdout);
 
 					executeCommandWithInput(vector<string>{
-						"wc", "<", "history.txt"
+						"wc", "<", "command_output.txt"
 					});
 				}
 			}
