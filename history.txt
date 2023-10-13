@@ -7,3 +7,23 @@
 7 exit
 8 history
 9 exit
+10 ls -l
+11 clear
+12 exit
+13 history
+14 amogus
+15 clear
+16 ls -l
+17 pwd
+18 exit
+19 ls -l
+20 ls -l | wc
+21 ls -l | wc > output.txt
+22 exit
+23 histoty
+24 history
+25 pwd
+26 man fork
+27 amogus
+28 clear
+29 exit

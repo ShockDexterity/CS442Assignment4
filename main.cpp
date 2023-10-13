@@ -7,11 +7,12 @@ g++ *.cpp -o output.exe && ./output.exe
 int main()
 {
 	// at beginning of session, put the data from the file back into the queue
-	int numCommands {1};
-	queue<string> historyQueue;
-	string tempString;
+	int numCommands { 1 };
+	queue<string> historyQueue {};
+	string tempString { "" };
+
 	fstream histFile("history.txt", ios::in | ios::out | ios::app);
-	// histFile.open("history.txt");
+
 	if (!histFile)
 	{
 		cout << "Error with file" << endl;
@@ -23,8 +24,6 @@ int main()
 		numCommands++;
 	}
 
-	
-
 	while (true)
 	{
 		int numTokens { 0 };
@@ -32,11 +31,9 @@ int main()
 
 		if (lowercase(commandTokens.at(0)) == "exit")
 		{
-			
-			// TODO: print out history to file :)
 			histFile.clear();
 			histFile.seekg(0, ios::beg);
-			while(!historyQueue.empty())
+			while (!historyQueue.empty())
 			{
 				if (!isdigit(historyQueue.front()[0]))
 				{
@@ -44,11 +41,23 @@ int main()
 					numCommands++;
 				}
 				historyQueue.pop();
-				
 			}
 			cout << "Exiting shell" << '\n';
 			histFile.close();
 			exit(0);
+		}
+
+		// Does the command contain a | ?
+		bool hasPipe { findToken(commandTokens, "|") };
+		// Does the command contain a < ?
+		bool hasInput { findToken(commandTokens, "<") };
+		// Does the command contain a > ?
+		bool hasOutput { findToken(commandTokens, ">") };
+
+		if (tripleCompare(hasPipe, hasInput, hasOutput))
+		{
+			cout << "Please enter only a |, a <, a >, or nothing, this shell cannot handle multiple options." << '\n';
+			continue;
 		}
 
 		char* commandString[numTokens + 1];
@@ -74,12 +83,9 @@ int main()
 		}
 		else if (pid == 0) // must be in child process
 		{
-			cout << "THIS IS ";
-			print(commandString, numTokens);
-
 			if (contains(commandString[0], "pwd"))
 			{
-				char path[256];
+				char path[256] {};
 
 				if (getcwd(path, sizeof(path)) != NULL)
 				{
@@ -88,7 +94,7 @@ int main()
 			}
 			else if (contains(commandString[0], "history"))
 			{
-				string copy;
+				string copy { "" };
 				for (int i = 0; i < historyQueue.size(); i++)
 				{
 					cout << numCommands << ' ' << historyQueue.front() << endl;
@@ -102,9 +108,6 @@ int main()
 			{
 				executeUserCommand(commandString);
 			}
-
-
-
 
 			exit(0);
 		}

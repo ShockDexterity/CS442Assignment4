@@ -14,10 +14,7 @@
 using namespace std;
 
 vector<string> getCommand(int&, queue<string>&);
-vector<string> getCommandsFromFile(const string&);
-vector<vector<string>> tokenize(const vector<string>&);
-void parse(const vector<vector<string>>&);
-int findToken(const vector<string>&, const string&);
+bool findToken(const vector<string>&, const string&);
 void fill(char**, const vector<string>&);
 void executeUserCommand(char** cStringArr);
 
@@ -25,6 +22,8 @@ bool contains(const string&, const string&);
 bool contains(const char*, const char*);
 
 string lowercase(const string&);
+
+bool tripleCompare(bool, bool, bool);
 
 void print(const vector<vector<string>>&);
 void print(const vector<string>&);
