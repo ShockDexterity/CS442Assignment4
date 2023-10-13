@@ -109,3 +109,11 @@
 109 exit
 110 history | wc
 111 exit
+112 history | wc
+113 exit
+114 history | wc
+115 exit
+116 history | wc
+117 exit
+118 history | wc
+119 exit

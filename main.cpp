@@ -8,7 +8,7 @@ g++ *.cpp -o output.exe && ./output.exe
 
 #include "funcs.h"
 
-const string pre_piped_output { "command_output.txt" };
+const string command_output { "command_output.txt" };
 
 int main()
 {
@@ -99,20 +99,25 @@ int main()
 					printf("%s\n", path);
 				}
 			}
-			else if (hasPipe)
-			{
-				executePipedCommand(commandTokens, pre_piped_output, hasInput);
-			}
-			else if (hasInput)
-			{
-				executeCommandWithInput(commandTokens);
-			}
-			else if (hasOutput)
-			{
-				executeCommandWithOutput(commandTokens);
-			}
 			else if (contains(commandString[0], "history"))
 			{
+				// possible send output to wc just in case the command is history | wc
+				bool wc { false };
+				if (hasPipe && commandTokens.at(2) == "wc")
+				{
+					wc = true;
+
+					int fd { open(command_output.c_str(), O_TRUNC | O_WRONLY) };
+					if (fd < 0)
+					{
+						cout << "Failed to open file for piping" << '\n';
+						exit(1);
+					}
+
+					int orgSTDOUT { dup(1) };
+					dup2(fd, 1);
+				}
+
 				// printing data from the queue to the screen for the user to view
 				string copy { "" };
 				for (int i = 0; i < historyQueue.size(); i++)
@@ -123,6 +128,30 @@ int main()
 					historyQueue.emplace(copy);
 					copy.clear();
 				}
+
+				if (wc)
+				{
+					// change output back to stdout
+					fflush(stdout);
+					dup2(orgSTDOUT, 1);
+					fflush(stdout);
+
+					executeCommandWithInput(vector<string>{
+						"wc", "<", "history.txt"
+					});
+				}
+			}
+			else if (hasPipe)
+			{
+				executePipedCommand(commandTokens, command_output, hasInput);
+			}
+			else if (hasInput)
+			{
+				executeCommandWithInput(commandTokens);
+			}
+			else if (hasOutput)
+			{
+				executeCommandWithOutput(commandTokens);
 			}
 			else
 			{

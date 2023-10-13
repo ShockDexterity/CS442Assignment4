@@ -49,13 +49,6 @@ void executeUserCommand(char** cStringArr)
 
 void executePipedCommand(const vector<string>& tokenizedCommand, const string& output_file, bool& hasInput)
 {
-    int fd { open(output_file.c_str(), O_TRUNC | O_WRONLY) };
-    if (fd < 0)
-    {
-        cout << "Failed to open file for piping" << '\n';
-        exit(1);
-    }
-
     vector<string> prePipe {};
     vector<string> postPipe {};
     bool foundPipe { false };
@@ -73,6 +66,13 @@ void executePipedCommand(const vector<string>& tokenizedCommand, const string& o
         {
             postPipe.emplace_back(token);
         }
+    }
+
+    int fd { open(output_file.c_str(), O_TRUNC | O_WRONLY) };
+    if (fd < 0)
+    {
+        cout << "Failed to open file for piping" << '\n';
+        exit(1);
     }
 
     int orgSTDOUT { dup(1) };
