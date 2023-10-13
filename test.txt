@@ -1,0 +1,8 @@
+total 112
+-rw-rw-r-- 1 willc willc   343 Oct 13 12:08 command_output.txt
+-rw-rw-r-- 1 willc willc  5974 Oct 13 12:13 funcs.cpp
+-rw-rw-r-- 1 willc willc   888 Oct 13 12:07 funcs.h
+-rw-rw-r-- 1 willc willc  1179 Oct 13 12:12 history.txt
+-rw-rw-r-- 1 willc willc  3433 Oct 13 12:12 main.cpp
+-rwxrwxr-x 1 willc willc 89304 Oct 13 12:14 output.exe
+-r-x--s--T 1 willc willc     0 Oct 13 12:14 test.txt

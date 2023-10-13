@@ -17,6 +17,11 @@ vector<string> getCommand(int&, queue<string>&);
 bool findToken(const vector<string>&, const string&);
 void fill(char**, const vector<string>&);
 void executeUserCommand(char** cStringArr);
+void executePipedCommand(const vector<string>&, const string&, bool&);
+void executeCommandWithInput(const vector<string>&);
+void executeCommandWithOutput(const vector<string>&);
+
+void printHistory();
 
 bool contains(const string&, const string&);
 bool contains(const char*, const char*);

@@ -71,3 +71,39 @@
 71 exit
 72 man fork | wc
 73 exit
+74 wc < cmmand_input.txt
+75 exit
+76 wc < comand_input.txt
+77 exit
+78 wc < /home/willc/Desktop/operatingSystems/CS442Assignment4/command_output.txt
+79 exit
+80 wc < command_output.txt
+81 exit
+82 wc < command_output.txt
+83 exit
+84 wc < history.txt
+85 exit
+86 ls -l | wc
+87 exit
+88 pwd
+89 ls -l > test.txt
+90 exit
+91 ls -l > test.txt
+92 ls -l > test.txt
+93 pwd
+94 ls -l > test.txt
+95 exit
+96 ls -l > test.txt
+97 cat test.txt
+98 exit'
+99 exit
+100 exit
+101 ls -l
+102 ls -l | wc
+103 wc test.txt
+104 wc < test.txt
+105 history | wc
+106 clear
+107 exit
+108 history | wc
+109 exit
