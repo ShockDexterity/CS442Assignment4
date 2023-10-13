@@ -7,7 +7,7 @@ g++ *.cpp -o output.exe && ./output.exe
 int main()
 {
 	// at beginning of session, put the data from the file back into the queue
-	int numCommands {0};
+	int numCommands {1};
 	queue<string> historyQueue;
 	string tempString;
 	fstream histFile("history.txt", ios::in | ios::out | ios::app);
@@ -38,9 +38,13 @@ int main()
 			histFile.seekg(0, ios::beg);
 			while(!historyQueue.empty())
 			{
-				histFile << numCommands + 1 << ' ' << historyQueue.front() << endl;
+				if (!isdigit(historyQueue.front()[0]))
+				{
+					histFile << numCommands << ' ' << historyQueue.front() << endl;
+					numCommands++;
+				}
 				historyQueue.pop();
-				numCommands++;
+				
 			}
 			cout << "Exiting shell" << '\n';
 			histFile.close();
@@ -87,7 +91,7 @@ int main()
 				string copy;
 				for (int i = 0; i < historyQueue.size(); i++)
 				{
-					cout << numCommands + 1 << ' ' << historyQueue.front() << endl;
+					cout << numCommands << ' ' << historyQueue.front() << endl;
 					copy = historyQueue.front();
 					historyQueue.pop();
 					historyQueue.emplace(copy);
