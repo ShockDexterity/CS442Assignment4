@@ -27,3 +27,47 @@
 27 amogus
 28 clear
 29 exit
+30 wc history.txt
+31 ls -l
+32 exit
+33 ls
+34 ls -l
+35 ls -l | pwd
+36 cat command_output.txt
+37 exit
+38 ls -l | pwd
+39 pwd
+40 cat command_output.txt
+41 clear
+42 exit
+43 ls -l | pwd
+44 cat command_output.txt
+45 clear
+46 exit
+47 ls -l | pwd
+48 exit
+49 ls -l | pwd
+50 exit
+51 ls -l | pwd
+52 clear
+53 exit
+54 ls -l | pwd
+55 exit
+56 ls -l
+57 ls -l | pwd
+58 pwd
+59 clear
+60 exit
+61 ls -l | pwd
+62 exit
+63 ls -l | pwd
+64 exit
+65 ls -l | pwd
+66 wc history.txt
+67 exit
+68 ls -l | wc
+69 exit
+70 ls -l | wc
+71 exit
+72 man fork | wc
+73 exit

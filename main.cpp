@@ -2,7 +2,92 @@
 g++ *.cpp -o output.exe && ./output.exe
 */
 
+/******************************************
+ AUTHORS: William Canter and Rowan Verdouw
+******************************************/
+
 #include "funcs.h"
+
+const string OUTPUT_FILE { "command_output.txt" };
+
+void executePipedCommand(const vector<string>&);
+void executePipedCommand(const vector<string>& tokenizedCommand)
+{
+	cout << "In function executePipedCommand" << '\n';
+
+	int fd { open(OUTPUT_FILE.c_str(), O_TRUNC | O_WRONLY) };
+	if (fd < 0)
+	{
+		cout << "Failed to open file for piping" << '\n';
+		exit(1);
+	}
+
+	vector<string> prePipe {};
+	vector<string> postPipe {};
+	bool foundPipe { false };
+	for (const string& token : tokenizedCommand)
+	{
+		if (!foundPipe && token == "|") // found the pipe
+		{
+			foundPipe = true;
+		}
+		else if (!foundPipe) // command before the pipe
+		{
+			prePipe.emplace_back(token);
+		}
+		else // command after the pipe
+		{
+			postPipe.emplace_back(token);
+		}
+	}
+
+	int orgSTDOUT { dup(1) };
+	dup2(fd, 1);
+
+	pid_t pid { fork() };
+
+	if (pid < 0) // no grandchild
+	{
+		// change output back to stdout
+		fflush(stdout);
+		dup2(orgSTDOUT, 1);
+		close(fd);
+		fflush(stdout);
+		cout << "Failed to creat a child for piping" << '\n';
+		exit(1);
+	}
+	else if (pid == 0) // grandchild
+	{
+		// todo: run the first half of the command
+		int size { static_cast<int>(prePipe.size()) };
+		char* comString[size + 1] {};
+		comString[size] = NULL;
+		fill(comString, prePipe);
+		executeUserCommand(comString);
+	}
+	else // must be in main child
+	{
+		wait(0);
+
+		// change output back to stdout
+		fflush(stdout);
+		dup2(orgSTDOUT, 1);
+		close(fd);
+		fflush(stdout);
+
+		if (postPipe.size() == 1 && postPipe.at(0) == "wc")
+		{
+			postPipe.emplace_back(OUTPUT_FILE);
+		}
+
+		int size { static_cast<int>(postPipe.size()) };
+		char* comString[size + 1] {};
+		comString[size] = NULL;
+		fill(comString, postPipe);
+		executeUserCommand(comString);
+
+	}
+}
 
 int main()
 {
@@ -101,8 +186,16 @@ int main()
 					copy = historyQueue.front();
 					historyQueue.pop();
 					historyQueue.emplace(copy);
-					copy = "";
+					copy.clear();
 				}
+			}
+			else if (hasPipe)
+			{
+				executePipedCommand(commandTokens);
+			}
+			else if (hasOutput)
+			{
+				// todo: executeCommandWithOutput();
 			}
 			else
 			{
