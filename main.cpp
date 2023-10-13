@@ -116,11 +116,12 @@ int main()
 
 		if (lowercase(commandTokens.at(0)) == "exit")
 		{
+			//saving data from the queue into the history file
 			histFile.clear();
-			histFile.seekg(0, ios::beg);
+			histFile.seekg(0, ios::beg); // moves the file pointer to the front of the file
 			while (!historyQueue.empty())
 			{
-				if (!isdigit(historyQueue.front()[0]))
+				if (!isdigit(historyQueue.front()[0])) // checking if the row already has a line number
 				{
 					histFile << numCommands << ' ' << historyQueue.front() << endl;
 					numCommands++;
@@ -179,6 +180,7 @@ int main()
 			}
 			else if (contains(commandString[0], "history"))
 			{
+				// printing data from the queue to the screen for the user to view
 				string copy { "" };
 				for (int i = 0; i < historyQueue.size(); i++)
 				{
